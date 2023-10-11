@@ -1,0 +1,11 @@
+
+mgard_ec_refactor:6008 terminated with signal 6 at PC=7f3a1dc96a7c SP=7fff4e108130.  Backtrace:
+/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7f3a1dc96a7c]
+/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x7f3a1dc42476]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7f3a1dc287f3]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2871b)[0x7f3a1dc2871b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x39e96)[0x7f3a1dc39e96]
+./build/test/mgard_ec_refactor(main+0x500a)[0x55fad72a0dca]
+/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x7f3a1dc29d90]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x7f3a1dc29e40]
+./build/test/mgard_ec_refactor(_start+0x25)[0x55fad72cc805]

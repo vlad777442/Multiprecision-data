@@ -1,0 +1,36 @@
+cmake_minimum_required (VERSION 3.0)
+project(MDR VERSION 0.0.0.1)
+set (CMAKE_CXX_STANDARD 11)
+set (CMAKE_CXX_STANDARD_REQUIRED ON)
+set (CMAKE_CXX_FLAGS "-g -O3")
+set(CMAKE_VERBOSE_MAKEFILE ON)
+
+set (MGARDx_INCLUDES "${CMAKE_CURRENT_SOURCE_DIR}/external/MGARDx/install/include")
+
+find_library(ZSTD_LIB zstd HINTS "/usr/local/Cellar/zstd/1.5.2/lib")
+find_library(SZ3_LIB SZ3 HINTS "${CMAKE_CURRENT_SOURCE_DIR}/external/SZ3/build/src")
+set (ZSTD_INCLUDES "/usr/local/Cellar/zstd/1.5.2/include")
+set (SZ3_INCLUDES "${CMAKE_CURRENT_SOURCE_DIR}/external/SZ3/include")
+
+find_library(ADIOS2_LIB adios2_cxx11 HINTS "/Users/lwk/Research/Projects/adios2/master/clang-install/lib")
+set (ADIOS2_INCLUDES "/Users/lwk/Research/Projects/adios2/master/clang-install/include")
+
+find_library(ADIOS2MPI_LIB adios2_cxx11_mpi HINTS "/Users/lwk/Research/Projects/adios2/master/clang-install/lib")
+set (ADIOS2MPI_INCLUDES "/Users/lwk/Research/Projects/adios2/master/clang-install/include")
+
+find_library(EC_LIB erasurecode HINTS "/Users/lwk/Research/Projects/RS-coding/install/lib")
+set (EC_INCLUDES "/Users/lwk/Research/Projects/RS-coding/install/include")
+
+find_library(MPI_LIB mpi HINTS "/usr/local/lib")
+set (MPI_INCLUDES "/usr/local/include")
+
+find_library(ROCKSDB_LIB rocksdb HINTS "/Users/lwk/Research/Projects/rocksdb/install/lib")
+set (ROCKSDB_INCLUDES "/Users/lwk/Research/Projects/rocksdb/install/include")
+
+find_library(BONMIN_LIB bonmin HINTS "/Users/lwk/Research/Projects/coin-or/bonmin/install/lib")
+set (BONMIN_INCLUDES "/Users/lwk/Research/Projects/coin-or/bonmin/install/include")
+
+add_library(${PROJECT_NAME} INTERFACE)
+target_include_directories(${PROJECT_NAME} INTERFACE include)
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/ DESTINATION include)
+add_subdirectory (test)
